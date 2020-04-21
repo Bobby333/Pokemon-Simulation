@@ -1,0 +1,67 @@
+﻿@model PokemonSimulation.Models.Moves
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Moves</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="MoveId" />
+            <div class="form-group">
+                <label asp-for="Move_Name" class="control-label"></label>
+                <input asp-for="Move_Name" class="form-control" />
+                <span asp-validation-for="Move_Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Move_Description" class="control-label"></label>
+                <input asp-for="Move_Description" class="form-control" />
+                <span asp-validation-for="Move_Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Move_Power" class="control-label"></label>
+                <input asp-for="Move_Power" class="form-control" />
+                <span asp-validation-for="Move_Power" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Move_Type" class="control-label"></label>
+                <input asp-for="Move_Type" class="form-control" />
+                <span asp-validation-for="Move_Type" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Move_Amount" class="control-label"></label>
+                <input asp-for="Move_Amount" class="form-control" />
+                <span asp-validation-for="Move_Amount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Accuracy" class="control-label"></label>
+                <input asp-for="Accuracy" class="form-control" />
+                <span asp-validation-for="Accuracy" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Move_dType" class="control-label"></label>
+                @Html.DropDownList("Attack Type",
+                  new SelectList(Enum.GetValues(typeof(Move_dType))),
+                  "Attack Type",
+                  new { @class = "form-control" })
+                <span asp-validation-for="Move_dType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

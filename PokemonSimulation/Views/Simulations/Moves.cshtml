@@ -1,0 +1,103 @@
+﻿@model List<PokemonSimulation.Models.Pokedex>
+@{
+    ViewData["Title"] = "Moves";
+   List<Pokedex> selectedPokemon = new List<Pokedex>();
+}
+<style>
+    .column {
+  float: left;
+  width: 50%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+</style>
+
+    <h1>Select Moves and Abilitys</h1>
+
+
+    @foreach (var pokemon in Model)
+    {
+        selectedPokemon.Add(pokemon);
+    }
+    
+
+
+@{
+    Pokedex pokemon1 = selectedPokemon[0];
+    Pokedex pokemon2 = selectedPokemon[1];
+}
+<form asp-action="Item">
+    <div class="row">
+        <div class="column">
+            <h1>@pokemon1.Pokemon_Name</h1>
+            <h2>Moves</h2>
+            @foreach (var move in pokemon1.moveAssignments)
+            {
+                
+                @:
+                <li>
+                    <input type="checkbox"
+                           name="selectedMove1"
+                           value="@move.MoveID" />
+                    @move.Move.Move_Name
+
+                </li>
+                <input type="hidden" name="SelectedPokemon1" value=" @pokemon1.PokemonId"/>
+            }
+            <h2>Abilitys</h2>
+            @foreach (var ability in pokemon1.abilitysAssignments)
+            {
+
+                @:
+                <li>
+                    <input type="checkbox"
+                           name="selectedAbility1"
+                           value="@ability.AbilityID" />
+                    @ability.Ability.Ability_Name
+
+                </li>
+            }
+        </div>
+        <div class="column">
+            <h1>@pokemon2.Pokemon_Name</h1>
+                        <h2>Moves</h2>
+                        @foreach (var move in pokemon2.moveAssignments)
+                        {
+
+                            @:
+                            <li>
+                                <input type="checkbox"
+                                       name="selectedMove2"
+                                       value="@move.MoveID" />
+                                @move.Move.Move_Name
+
+                            </li>
+                            <input type="hidden" name="SelectedPokemon2" value=" @pokemon2.PokemonId" />
+                        }
+                        <h2>Abilitys</h2>
+                        @foreach (var ability in pokemon2.abilitysAssignments)
+                        {
+
+                            @:
+                            <li>
+                                <input type="checkbox"
+                                       name="selectedAbility2"
+                                       value="@ability.AbilityID" />
+                                @ability.Ability.Ability_Name
+
+                            </li>
+                        }
+</div>
+    </div>
+    <input type="submit" value="Item" class="btn btn-danger" />
+</form>
+
+
+
+
+

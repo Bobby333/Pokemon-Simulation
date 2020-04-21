@@ -1,0 +1,40 @@
+﻿@model PokemonSimulation.Models.PokedexIndexData
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+
+<div class="form-group">
+    <div class="col-md-offset-2 col-md-10">
+        <form asp-action="Moves">
+            <table>
+                <tr>
+                    <th>Select Two  Pokemon</th>
+                    @{
+                        int cnt = 0;
+                        List<PokemonSimulation.Models.Pokedex> Pokemon = ViewBag.Pokemon;
+                        foreach (var pokemon in Pokemon)
+                        {
+                            if (cnt++ % 3 == 0)
+                            {
+                            @:</tr><tr>
+                            }
+                            @:<td>
+                                <input type="checkbox"
+                                       name="selectedPokemon"
+                                       value="@pokemon.PokemonId" />
+                                @pokemon.Pokemon_Name
+                            @:</td>
+                        }
+                    @:</tr>
+                    }
+                </table>
+                
+            <br />
+                <input type="submit" value="Moves/Ability" class="btn btn-danger" /> 
+            </form>
+        </div>
+    </div>

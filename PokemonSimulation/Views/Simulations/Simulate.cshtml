@@ -1,0 +1,38 @@
+﻿
+
+@{
+    
+    ViewData["Title"] = "Simulation";
+    Pokedex pokemon1 = ViewBag.Pokemon1;
+    Pokedex pokemon2 = ViewBag.Pokemon2;
+}
+    <style>
+        .column {
+            float: left;
+            width: 50%;
+        }
+
+        /* Clear floats after the columns */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+    </style>
+
+<h1>Simulation</h1>
+
+<div class="row">
+    <div class="column">
+        <h1>@pokemon1.Pokemon_Name</h1>
+        <p>@ViewBag.Pokemon1Wins</p>
+    </div>
+    <div class="column">
+        <h1>@pokemon2.Pokemon_Name</h1>
+        <p>@ViewBag.Pokemon2Wins</p>
+        
+    </div>
+
+
+
+

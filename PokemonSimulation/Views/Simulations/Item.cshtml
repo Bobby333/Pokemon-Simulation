@@ -1,0 +1,95 @@
+﻿@model List<PokemonSimulation.Models.Pokedex>
+@{
+    ViewData["Title"] = "Items";
+    List<Pokedex> selectedPokemon = new List<Pokedex>();
+}
+@foreach (var pokemon in Model)
+{
+    selectedPokemon.Add(pokemon);
+}
+
+
+
+@{
+    Pokedex pokemon1 = selectedPokemon[0];
+    Pokedex pokemon2 = selectedPokemon[1];
+}
+<style>
+    .column {
+        float: left;
+        width: 50%;
+    }
+
+    /* Clear floats after the columns */
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+</style>
+
+
+<h1>Items</h1>
+
+<form asp-action="Simulate">
+    <div class="row">
+        <div class="column">
+            <h1>@pokemon1.Pokemon_Name</h1>
+            <h2>Select 1 Item</h2>
+            @{
+                List<PokemonSimulation.Models.Items> Items = ViewBag.Item;
+                @foreach (var item in Items)
+                {
+
+                    @:
+                    <li>
+                        <input type="checkbox"
+                               name="selectedItem1"
+                               value="@item.ItemId" />
+                        @item.Item_Name;
+
+                    </li>
+                }
+            }
+        </div>
+        <div class="column">
+            <h1>@pokemon2.Pokemon_Name</h1>
+            <h2>Select 1 Item</h2>
+            @{
+
+                @foreach (var item in Items)
+                {
+
+                    @:
+                    <li>
+                        <input type="checkbox"
+                               name="selectedItem2"
+                               value="@item.ItemId" />
+                        @item.Item_Name;
+
+                    </li>
+                }
+            }
+        </div>
+    </div>
+    <input type="hidden" name="SelectedPokemon2" value=" @ViewBag.PokemonID1" />
+    <input type="hidden" name="SelectedPokemon1" value=" @ViewBag.PokemonID2" />
+    @{
+        string[] moves1 = ViewBag.Move1;
+        string[] moves2 = ViewBag.Move2;
+        for (var i = 0; i < moves1.Length; i++)
+        {
+            <input type="hidden" name="selectedMove1" value=" @moves1[i]" />
+        }
+        for (var i = 0; i < moves2.Length; i++)
+        {
+            <input type="hidden" name="selectedMove2" value=" @moves2[i]" />
+        }
+    }
+    <input type="hidden" name="selectedAbility1" value=" @ViewBag.Ability1" />
+    <input type="hidden" name="selectedAbility2" value=" @ViewBag.Ability2" />
+
+    <input type="submit" value="Simulate" class="btn btn-danger" />
+</form>
+
+

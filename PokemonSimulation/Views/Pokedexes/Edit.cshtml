@@ -1,0 +1,131 @@
+﻿@model PokemonSimulation.Models.Pokedex
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Pokedex</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="PokemonId" />
+            <div class="form-group">
+                <label asp-for="Pokemon_Name" class="control-label"></label>
+                <input asp-for="Pokemon_Name" class="form-control" />
+                <span asp-validation-for="Pokemon_Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Type1" class="control-label"></label>
+                <input asp-for="Type1" class="form-control" />
+                <span asp-validation-for="Type1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Type2" class="control-label"></label>
+                <input asp-for="Type2" class="form-control" />
+                <span asp-validation-for="Type2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HP" class="control-label"></label>
+                <input asp-for="HP" class="form-control" />
+                <span asp-validation-for="HP" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Attack" class="control-label"></label>
+                <input asp-for="Attack" class="form-control" />
+                <span asp-validation-for="Attack" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Defense" class="control-label"></label>
+                <input asp-for="Defense" class="form-control" />
+                <span asp-validation-for="Defense" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Special_Attack" class="control-label"></label>
+                <input asp-for="Special_Attack" class="form-control" />
+                <span asp-validation-for="Special_Attack" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Special_Defense" class="control-label"></label>
+                <input asp-for="Special_Defense" class="form-control" />
+                <span asp-validation-for="Special_Defense" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Speed" class="control-label"></label>
+                <input asp-for="Speed" class="form-control" />
+                <span asp-validation-for="Speed" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Total" class="control-label"></label>
+                <input asp-for="Total" class="form-control" />
+                <span asp-validation-for="Total" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <table>
+                        <tr>
+                            <th>Moves</th>
+                            @{
+                                int cnt = 0;
+                                List<PokemonSimulation.Models.MoveAssignment> moves = ViewBag.Moves;
+                                foreach (var move in moves)
+                                {
+                                    if (cnt++ % 3 == 0)
+                                    {
+                                    @:</tr><tr>
+                                    }
+                                    @:<td>
+                                        <input type="checkbox"
+                                               name="selectedMoves"
+                                               value="@move.MoveID"/>
+                                        @move.MoveID @: @move.Move.Move_Name
+                                    @:</td>
+                                }
+                            @:</tr>
+                            }
+                        </table>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <table>
+                            <tr>
+                                <th>Abilities</th>
+                                @{
+                                    int acnt = 0;
+                                    List<PokemonSimulation.Models.AbilityAssignment> abilities = ViewBag.Abilitys;
+                                    foreach (var ability in abilities)
+                                    {
+                                        if (acnt++ % 3 == 0)
+                                        {
+                                        @:</tr><tr>
+                                        }
+                                        @:<td>
+                                            <input type="checkbox"
+                                                   name="SelectedAbility"
+                                                   value="@ability.AbilityID" />
+                                            @ability.AbilityID @: @ability.Ability.Ability_Name
+                                        @:</td>
+                                    }
+                                @:</tr>
+                                }
+                            </table>
+                        </div>
+                    </div>
+                </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,60 @@
+﻿@model PokemonSimulation.Models.Moves
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Moves</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Move_Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Move_Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Move_Description)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Move_Description)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Move_Power)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Move_Power)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Move_Type)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Move_Type)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Move_Amount)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Move_Amount)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Accuracy)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Accuracy)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Move_dType)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Move_dType)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.MoveId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
