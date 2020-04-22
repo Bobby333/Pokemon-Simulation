@@ -240,11 +240,11 @@ namespace PokemonSimulation.Controllers
                             {
                                 if (ChosenMove.Move_Type == pokemon1.Type1 || ChosenMove.Move_Type == pokemon1.Type2)
                                 {
-                                    p2HP = p2HP - (((((((((2 * 50 / 5 + 2) * p1Atk * ChosenMove.Move_Power) / p2Def) / 50) + 2) * 1.5) * 1 / 10) * randomPower2) / 255);
+                                    p1HP = p1HP - (((((((((2 * 50 / 5 + 2) * p2Atk * ChosenMove.Move_Power) / p1Def) / 50) + 2) * 1.5) * 1 / 10) * randomPower2) / 255);
                                 }
                                 if (ChosenMove.Move_Type != pokemon1.Type1 || ChosenMove.Move_Type != pokemon1.Type2)
                                 {
-                                    p2HP = p2HP - (((((((((2 * 50 / 5 + 2) * p1Atk * ChosenMove.Move_Power) / p2Def) / 50) + 2) * 1) * 1 / 10) * randomPower2) / 255);
+                                    p1HP = p1HP - (((((((((2 * 50 / 5 + 2) * p2Atk * ChosenMove.Move_Power) / p1Def) / 50) + 2) * 1) * 1 / 10) * randomPower2) / 255);
                                 }
                             }
 
@@ -271,11 +271,11 @@ namespace PokemonSimulation.Controllers
                             {
                                 if (ChosenMove.Move_Type == pokemon1.Type1 || ChosenMove.Move_Type == pokemon1.Type2)
                                 {
-                                    p2HP = p2HP - (((((((((2 * 50 / 5 + 2) * p1Atk * ChosenMove.Move_Power) / p2Def) / 50) + 2) * 1.5) * 1 / 10) * randomPower2) / 255);
+                                    p1HP = p1HP - (((((((((2 * 50 / 5 + 2) * p2Atk * ChosenMove.Move_Power) / p1Def) / 50) + 2) * 1.5) * 1 / 10) * randomPower2) / 255);
                                 }
                                 if (ChosenMove.Move_Type != pokemon1.Type1 || ChosenMove.Move_Type != pokemon1.Type2)
                                 {
-                                    p2HP = p2HP - (((((((((2 * 50 / 5 + 2) * p1Atk * ChosenMove.Move_Power) / p2Def) / 50) + 2) * 1) * 1 / 10) * randomPower2) / 255);
+                                    p1HP = p1HP - (((((((((2 * 50 / 5 + 2) * p2Atk * ChosenMove.Move_Power) / p1Def) / 50) + 2) * 1) * 1 / 10) * randomPower2) / 255);
                                 }
                             }
 
@@ -311,11 +311,11 @@ namespace PokemonSimulation.Controllers
 
                     }
                 }
-            if (p2HP < 0)
+            if (p2HP <= 0)
             {
                 return "p1";
             }
-            else if (p1HP < 0)
+            else if (p1HP <= 0)
             {
                 return "p2";
             }

@@ -8585,11 +8585,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\bobby\\OneDrive\\Documents\\371\\PokemonSimulation\\PokemonSimulation\\PokemonSimulation.csproj",
+      "projectUniqueName": "C:\\Users\\bobby\\OneDrive\\Documents\\GitHub\\Pokemon-Simulation\\PokemonSimulation\\PokemonSimulation.csproj",
       "projectName": "PokemonSimulation",
-      "projectPath": "C:\\Users\\bobby\\OneDrive\\Documents\\371\\PokemonSimulation\\PokemonSimulation\\PokemonSimulation.csproj",
+      "projectPath": "C:\\Users\\bobby\\OneDrive\\Documents\\GitHub\\Pokemon-Simulation\\PokemonSimulation\\PokemonSimulation.csproj",
       "packagesPath": "C:\\Users\\bobby\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\bobby\\OneDrive\\Documents\\371\\PokemonSimulation\\PokemonSimulation\\obj\\",
+      "outputPath": "C:\\Users\\bobby\\OneDrive\\Documents\\GitHub\\Pokemon-Simulation\\PokemonSimulation\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
