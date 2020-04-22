@@ -319,12 +319,7 @@ namespace PokemonSimulation.Controllers
             {
                 return "p2";
             }
-          
-                return "tie";
-            
-                
-            
-           
+                return "tie";   
         }
 
         public async Task<IActionResult> Simulate(Pokedex pokedex,
